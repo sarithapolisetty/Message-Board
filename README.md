@@ -14,8 +14,8 @@ Custom Admin Panel from scratch. Authentication & Authorization with use of Devi
 <li> JavaScript </li>
 <li> PostgreSQL </li>
 <li> Bootstrap </li>
-<br>
-Database
+
+## Database
 
 <p> To set up and populate the database: </p>
 
