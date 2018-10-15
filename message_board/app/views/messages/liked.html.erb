@@ -1,0 +1,27 @@
+<div class="" style="margin-top: 50px;
+     margin-left: 70px;
+     margin-right: 70px">
+<h3>Liked Messages</h3>
+<br>
+
+<table class="table table-borderless table-hover">
+  <thead>
+    <tr class="table-success">
+    <th style="border-radius:8px 0px 0px 0px">Title</th>
+    </tr>
+  </thead>
+<tbody>
+  <% @messages.each do |message| %>
+    <td>
+      <%= link_to(
+        message.title,
+        message_path(message)) %>
+        <br>
+      <small>
+        Liked <%= time_ago_in_words(message.created_at) %> ago
+      </small>
+    </td>
+  <% end %>
+  </tbody>
+</table>
+

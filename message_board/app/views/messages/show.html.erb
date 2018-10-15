@@ -1,0 +1,105 @@
+
+<div class="container-fluid">
+  <h3 class="mt-4">Message</h3>
+  <h2 class="mt-4"><%= @message.title %></h2>
+  <p><%= @message.description %></p>
+  <p>By <%= @message.user&.full_name || '[DELETED]'%></p>
+<div>
+  <small>
+   Messaged <%= time_ago_in_words(@message.created_at) %>
+  </small>
+</div>
+<br>
+<p>
+  <strong style="color:lightcoral">Tags:</strong>
+  <%= @message.tags.order(name: :asc).map{ |t| t.humanized_name }.join(", ") %>
+</p>
+<div>
+  <% if @message.image.attached? %>
+    <%= image_tag @message.image.variant(resize:  "500x500") %>
+  <% end %>
+</div>
+  <br>
+  <div>
+    <small>
+    <% if user_signed_in? && can?(:like, @message) %>
+     <% if @like.present? %>
+      <%= link_to fa_icon('thumbs-down 2x'), like_path(@like), method: :delete,
+      class: "btn btn-danger mt-3 mr-2" %>
+      <% else %>
+        <%= link_to fa_icon('thumbs-up 2x'), message_likes_path(@message), method: :post,
+        class: "btn btn-success mt-3 mr-2" %>
+        <% end %>
+      •
+      <% end %>
+      <%= pluralize(@message.likes.count, 'like') %>
+      </small>
+      
+<% if user_signed_in? %>
+<div>
+  <% if can?(:edit, @message) %>
+	<small>
+		<%= link_to 'Edit', edit_message_path(@message), :class => "btn btn-warning mt-3 mr-2" %>
+    </small>
+    <% end %>
+    <% if can?(:delete, @message) %>
+    <small>
+    <%= link_to(
+          'Delete', 
+          message_path(@message),  :class => "btn btn-danger mt-3",
+          method: :delete,
+          data: {
+            confirm: "Are you sure?"
+          }) %>
+    </small>
+    <% end %>
+</div>
+<% end %>
+</div>
+
+<h3 class="mt-4">Reply</h3>
+<%= simple_form_for [@message, @reply] do |f| %>
+    <% if @reply.errors.present? %>
+    <p>
+      <%= @reply.errors.full_messages.join(', ') %>
+    </p>
+  <% end %>
+
+  <div>
+    <%= f.text_area(
+        :content, cols: 60, rows: 6,
+        placeholder: "What's on your mind?", 
+        :class => "form-control"
+      ) %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-primary mt-3" %>
+<% end %>
+<div class="reply-list mt-4">
+	<% @replies.each do |reply| %>
+		<div>
+			<p>
+        <strong>
+          <%= reply.user&.full_name || '[DELETED]' %> replied:
+        </strong><br />
+				<%= reply.content %><br />
+				<small>
+					Replied <%= time_ago_in_words(reply.created_at) %> ago
+				</small>
+        <small> ▸ 
+          <% if user_signed_in? && can?(:delete, reply) %>
+            <%= link_to(
+                  'Delete',
+                  message_reply_path(@message, reply),
+                  method: :delete,
+                  data: {
+                    confirm: "Are you sure?"
+                  }, class: "btn-danger") %>
+          <% end %>
+        </small>
+			</p>
+		</div>
+	<% end %>
+</div>
+</div>
+
+

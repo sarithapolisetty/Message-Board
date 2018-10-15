@@ -1,0 +1,24 @@
+<br>
+<h3>All Replies</h3>
+<div class="card mb-4">
+<table class="table table-borderless table-hover">
+  <thead>
+    <tr class="table-success">
+      <th style="border-radius:8px 0px 0px 0px">Content</th>
+      <th>Created At</th>
+    </tr>
+    </thead>
+  <tbody>
+    <% @replies.each do |reply| %>
+      <tr>
+        <td><%= reply.content.truncate(40) %></td>
+        <td><%= time_ago_in_words(reply.created_at) %></td>
+        <td>
+        <%= link_to('remove', message_path(reply.message.id),
+        method: :delete, class:"text-danger")%>
+      </td> 
+      </tr>   
+    <% end %>
+  </tbody>
+</table>
+</div>

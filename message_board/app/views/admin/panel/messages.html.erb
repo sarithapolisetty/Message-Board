@@ -1,0 +1,30 @@
+
+<br>
+<h3>All Messages</h3>
+<div class="card mb-4">
+<table class="table table-borderless table-hover">
+  <thead>
+    <tr class="table-success">
+      <th style="border-radius:8px 0px 0px 0px">Title</th>
+      <th>Description</th>
+      <th>Created At</th>
+    </tr>
+    </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.title.truncate(20) %></td>
+        <td><%= message.description.truncate(20) %></td>
+        <td><%= time_ago_in_words(message.created_at) %></td>
+        <td>
+        <%= link_to('edit', edit_message_path(message), class:"text-warning mr-3")%>
+         <%= link_to('like', message_likes_path(message), method: :post,
+        class: "text-success mr-3") %>
+        <%= link_to('remove', message_path(message.id),
+        method: :delete, class:"text-danger")%>
+      </td> 
+      </tr>   
+    <% end %>
+  </tbody>
+</table>
+</div>

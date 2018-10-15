@@ -1,0 +1,11 @@
+<div class="" style="margin-top: 50px;
+     margin-left: 70px;
+     margin-right: 70px">
+<h3>Sign In</h3>
+<br>
+<%= simple_form_for :session, url: session_path do |f| %>
+<%= f.input :email, required: false%><br>
+<%= f.input :password, required: false%><br>
+ <%= f.submit "Sign In", class:"btn btn-success"%>
+<% end %>
+</div>

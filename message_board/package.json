@@ -1,0 +1,11 @@
+{
+  "name": "message_board",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "3.5",
+    "tippy.js": "^2.5.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
+}

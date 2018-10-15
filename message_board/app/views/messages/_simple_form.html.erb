@@ -1,0 +1,11 @@
+
+<div class="container-fluid">
+<%= simple_form_for(@message) do |f| %>
+  <%= f.input :title, required: false%><br>
+  <%= f.input :description, required: false%><br>
+  <%= f.association :tags, input_html: { class: 'chosen-select chosen-box' } %><br>
+  <%= f.file_field :image%><br>
+  <br>
+  <%= f.submit 'Create Message', class: 'btn-success' %>
+<% end%>
+</div>

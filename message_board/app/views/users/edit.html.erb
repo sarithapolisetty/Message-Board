@@ -1,0 +1,14 @@
+<div class="" style="margin-top: 50px;
+     margin-left: 70px;
+     margin-right: 70px">
+     <br>
+<h3>Edit Users</h3>
+<br>
+<%= simple_form_for @user do |f| %>
+ <%= f.input :first_name, required: false%><br>
+ <%= f.input :last_name, required: false%><br>
+ <%= f.input :email, required: false%><br>
+ <%= f.submit "Edit User",  class: "btn btn-success"%>
+<% end %>
+
+</div>

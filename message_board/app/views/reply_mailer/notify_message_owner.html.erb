@@ -1,0 +1,21 @@
+<br>
+<h3>Hi, <%= @message_owner.full_name %> 👋</h3>
+
+<p>
+  You got reply to your message:
+  <q><%= @message.title %></q>
+</p>
+
+<p>
+  The reply is: <br />
+  <q><%= @reply.content %></q>
+</p>
+
+<%=
+  link_to(
+    "Click here to view your Message",
+    message_url(@message)
+  )
+%>
+
+<p>Cheers,<br/>Message Board Team</p>

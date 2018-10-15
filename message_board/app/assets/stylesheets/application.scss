@@ -1,0 +1,47 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *=require chosen
+ */
+
+ @import "bootstrap";
+ @import "font-awesome";
+
+ body {
+  
+//   background-image:url("http://www.tribal-celtic-tattoo.com/new/index.php?getimage_hheckn=cool+powerpoint+backgrounds.jpg");
+     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtykuFjDD0OWhJrBn1OZorl2T7ffRkE6DJ-mK_jUXHkwaZVahjAA");
+ }
+
+ img {
+     border-radius: 50%;
+ }
+
+ h3 {
+     color: lightcoral;
+ }
+
+ nav ul {
+     list-style: none;
+     margin: 0 2px;
+     padding: 0;
+ }
+
+ nav li {
+     display: inline-block;
+     padding: 5px 5px;
+ }
+
+ .nav-item {
+     display: inline-block;
+     padding: 10px 10px;
+ }

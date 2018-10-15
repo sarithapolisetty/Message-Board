@@ -1,0 +1,36 @@
+<div class="" style="margin-top: 50px;
+     margin-left: 70px;
+     margin-right: 70px">
+     <h3 style="text-align:center">Welcome To Message Board</h3>
+     <br>
+     <br>
+<div class="container-fluid">
+<div class="row">
+    <% @messages.each do |message| %>
+  <div>
+    <div class="card p-4 m-2" >
+        <div class="card-block">
+            <h5 class="card-title">
+                <%= link_to(message.title, message_path(message.id),
+                class: "awesome-tooltip",
+                title: "👀 💖 #{message.title}") %>
+            </h5>
+            <p class="card-text text-truncate text-success">
+                <%= message.description %>
+            </p>
+        </div>
+    </div>
+  </div>
+<% end %>
+</div>
+</div>
+<br>
+</footer>
+ <footer class="page-footer font-small bg-light">
+     <%= will_paginate @messages%>
+    <div class = "footer-copyright text-center py-3">&copy; 2018 Copyright Message Board Team</div>
+    
+</footer>
+
+
+
