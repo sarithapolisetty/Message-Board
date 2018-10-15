@@ -1,24 +1,23 @@
-# README
+## Message Board
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<p>Message Board App that allows users to create messages and try to give replies to their messages. Sign in User and Admin can also Like or Dislike the messages. Implemented mailer functionality by using AWS S3. Developed
+Custom Admin Panel from scratch. Authentication & Authorization with use of Devise or other gems.</p>
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+<p> To view this website prototype, run Rails Server and go to http://localhost:3000 </p>
 
-* System dependencies
+## Built With
 
-* Configuration
+<ul>
+<li> Ruby On Rails </li>
+<li> JavaScript </li>
+<li> PostgreSQL </li>
+<li> Bootstrap </li>
 
-* Database creation
+## Database
 
-* Database initialization
+<p> To set up and populate the database: </p>
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails db:migrate
+rails db:seed
